@@ -125,7 +125,6 @@ def main() -> int:
         sys.exit(f"ERRO: arquivo de estilo não encontrado: {args.estilo}")
 
     destino = Path(args.saida).resolve()
-    destino.mkdir(parents=True, exist_ok=True)
     prompt = montar_prompt(args)
     raiz_img = codex_home() / "generated_images"
     ultima_msg = destino / ".codex-ultima-msg.txt"
@@ -136,6 +135,7 @@ def main() -> int:
         print("\nPROMPT:\n" + prompt)
         return 0
 
+    destino.mkdir(parents=True, exist_ok=True)
     antes = fotografar(raiz_img)
     t0 = time.time()
     try:

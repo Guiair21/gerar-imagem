@@ -17,6 +17,8 @@ Abra o terminal (no Windows, o PowerShell) e rode:
 npm install -g @openai/codex
 ```
 
+No Windows, se o PowerShell disser que "a execução de scripts foi desabilitada", rode uma vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, confirme com S (ou Y, se o Windows estiver em inglês) e repita o comando acima.
+
 ## Passo 2: entrar com a sua conta do ChatGPT
 
 ```
@@ -70,7 +72,7 @@ Você também pode:
 
 Se você não tem o Plus, a skill ainda ajuda. Com a extensão **Claude in Chrome** ligada ao Claude Code, o Claude abre o ChatGPT no seu navegador, monta o pedido completo da imagem e deixa tudo escrito na caixa de mensagem. Você só aperta enviar.
 
-1. Instale a extensão Claude in Chrome pela Chrome Web Store e entre com a mesma conta do Claude Code.
+1. Instale a extensão Claude in Chrome pela Chrome Web Store e entre com a mesma conta do Claude Code. Ela pede um plano pago do Claude (Pro ou Max), o mesmo que o Claude Code já usa.
 2. Abra o Claude Code com `claude --chrome` (ou digite `/chrome` com ele aberto e escolha ligar).
 3. No Chrome, entre no chatgpt.com com a sua conta. Pode ser a gratuita.
 4. Peça normalmente: `/gerar-imagem xícara de café...`. Sem o Codex, o Claude escreve o pedido no ChatGPT e avisa quando estiver pronto para enviar.
@@ -82,6 +84,7 @@ A imagem fica no ChatGPT e sai em menos de 1 minuto. Para baixar, clique na imag
 | O que aparece | O que fazer |
 |---|---|
 | "o Codex CLI não está instalado" | Refaça o Passo 1. Se o `npm` não existir, instale o Node.js |
+| "a execução de scripts foi desabilitada" (Windows) | Rode `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` no PowerShell e tente de novo |
 | "nenhuma imagem nova" | Rode `codex login status`. Se estiver logado num plano pago, tente de novo com um pedido mais direto |
 | O `/gerar-imagem` não aparece no Claude Code | Confira se o `SKILL.md` está em `.claude/skills/gerar-imagem/` e reabra o Claude Code |
 | `python` não encontrado (Mac ou Linux) | Peça ao Claude para usar `python3` |
